@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Verifikasi Akun</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="verification-card" id="mainCard">
+            <!-- Loading State -->
+            <div class="state-container" id="loadingState">
+                <div class="spinner"></div>
+                <h2>Memvalidasi Token...</h2>
+                <p>Mohon tunggu sebentar</p>
+            </div>
+
+            <!-- Verification Form State -->
+            <div class="state-container hidden" id="formState">
+                <div class="icon-container">
+                    <svg class="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                </div>
+                <h1>Verifikasi Akun</h1>
+                <p class="subtitle">Silakan konfirmasi bahwa Anda bukan robot untuk melanjutkan verifikasi.</p>
+
+                <div class="captcha-container">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="captchaCheckbox">
+                        <span class="checkmark"></span>
+                        <span class="checkbox-label">Saya bukan robot</span>
+                    </label>
+                </div>
+
+                <button class="btn-verify" id="verifyBtn" disabled>
+                    <span class="btn-text">Verifikasi Sekarang</span>
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 11 12 14 22 4"></polyline>
+                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                    </svg>
+                </button>
+
+                <div class="info-text">
+                    <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                    <span>Token ini hanya dapat digunakan sekali dan akan kadaluarsa dalam 10 menit.</span>
+                </div>
+            </div>
+
+            <!-- Success State -->
+            <div class="state-container hidden" id="successState">
+                <div class="icon-container success">
+                    <svg class="icon-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                <h1>Verifikasi Berhasil!</h1>
+                <p class="subtitle">Akun Anda telah berhasil diverifikasi.</p>
+                <p class="redirect-text">Mengarahkan kembali ke Telegram...</p>
+            </div>
+
+            <!-- Error State -->
+            <div class="state-container hidden" id="errorState">
+                <div class="icon-container error">
+                    <svg class="icon-error" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="15" y1="9" x2="9" y2="15"></line>
+                        <line x1="9" y1="9" x2="15" y2="15"></line>
+                    </svg>
+                </div>
+                <h1>Verifikasi Gagal</h1>
+                <p class="subtitle error-message" id="errorMessage">Token tidak valid atau sudah kadaluarsa.</p>
+                <p class="redirect-text">Mengarahkan kembali ke Telegram...</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>Secure Verification System</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
